@@ -11,17 +11,81 @@ html {
     scroll-behavior: smooth;
 }
  
+/* Dark Mode */
 .dark-mode {
     background-color: black;
     color: white;
   }
   
+  .dark-mode .navbar.sticky {
+    background: #670080;
+}
+
+.dark-mode .home{
+    background-image: url(image/dback.jpg);
+}
+
+.dark-mode .navbar .logo a span {
+    color: #69007d;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .navbar .menu li a {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.dark-mode .navbar .menu li a:hover {
+    color: #69007d;
+}
 .max-width {
     max-width: 1300px;
     padding: 0 80px;
     margin: auto;
 }
  
+.dark-mode .home .home-content .text-3 span {
+    color: #8c009b;
+    font-weight: 500;
+}
+.dark-mode.home .home-content a {
+    display: inline-block;
+    background: #620080;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid #5e0080;
+}
+ 
+.dark-mode .home .home-content a:hover {
+    color: #ffffff;
+    background: none;
+}
+
+.dark-mode .home .home-content a {
+    display: inline-block;
+    background: #750080;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid #660080;
+}
+ 
+
+
+
+
+
+
+
+
+
 /*  navbar   session*/
 .navbar {
     position: fixed;
