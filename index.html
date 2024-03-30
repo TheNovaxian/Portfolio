@@ -30,10 +30,22 @@
             <li><a href="#Specialty">Specialty</a></li>
             <li><a href="#teams">Team</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a> <label class="theme-switch" for="checkbox">
+            <li>
+                <input type="checkbox" id="toggle_checkbox">
+
+                <label for="toggle_checkbox">
+                  <div id="star">
+                    <div class="star" id="star-1">★</div>
+                    <div class="star" id="star-2">★</div>
+                  </div>
+                  <div id="moon"></div>
+                </label>
+                <!-- <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox" />
                 <div class="slider round"></div>
-            </label></a></li>
+            </label> -->
+        
+        </li>
         </ul>
     </div>
 </div>
@@ -46,6 +58,9 @@
             <a href="">Contact me</a>
         </div>
     </div>
+
+   
+
     </section>
 
     <!-- about section -->
@@ -343,7 +358,7 @@
         });
 
         $(document).ready(function() {
-    $('#checkbox').change(function() {
+    $('#toggle_checkbox').change(function() {
         $('body').toggleClass('dark-mode');
     });
 });
