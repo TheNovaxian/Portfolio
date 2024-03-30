@@ -31,19 +31,7 @@
             <li><a href="#teams">Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
-                <input type="checkbox" id="toggle_checkbox">
-
-                <label for="toggle_checkbox">
-                  <div id="star">
-                    <div class="star" id="star-1">★</div>
-                    <div class="star" id="star-2">★</div>
-                  </div>
-                  <div id="moon"></div>
-                </label>
-                <!-- <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label> -->
+                <a id="dark-mode-toggle"><img src="image/sunny-outline.svg"></a>
         
         </li>
         </ul>
@@ -180,10 +168,10 @@
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">My Team</h2>
-            <div class="carousel owl-carousel ">
+            <div class="carousel owl-carousel">
                 <div class="card">
                     <div class="box">
-                        <img src="jakepic.png" alt>
+                        <img src="image/t1.jpg" class="team-img">
                         <div class="text">Jake</div>
                         <p>Hey there! I'm Jake, your go-to web wizard. I breathe life into pixels, turning lines of code into captivating online experiences. Let's build something awesome together!</p>
                     </div>
@@ -191,7 +179,7 @@
  
                 <div class="card">
                     <div class="box">
-                        <img src="nathaliepic.png" alt>
+                        <img src="image/t2.jpg" class="team-img">
                         <div class="text">Nathalie</div>
                         <p>Hey there! I'm Nathalie, your go-to web whiz. I'm all about crafting sleek designs and seamless user experiences. Let's bring your digital dreams to life!</p>
                     </div>
@@ -199,7 +187,7 @@
  
                 <div class="card">
                     <div class="box">
-                        <img src="manupic.png" alt>
+                        <img src="image/t6.jpg" class="team-img">
                         <div class="text">Manu</div>
                         <p>Hey there! I'm Manu, your go-to web wizard. I breathe HTML, CSS, and JavaScript, crafting digital experiences that dazzle and delight. Let's turn pixels into perfection!</p>
                     </div>
@@ -207,7 +195,7 @@
  
                 <div class="card">
                     <div class="box">
-                        <img src="emmapic.png" alt>
+                        <img src="image/t3.png" class="team-img">
                         <div class="text">Emma</div>
                         <p>Hi there, I'm Emma. I thrive in dynamic environments where creativity and problem-solving skills are valued. I'm excited to bring my expertise and enthusiasm to you, where I'm committed to making a meaningful impact.</p>
                     </div>
@@ -215,7 +203,7 @@
  
                 <div class="card">
                     <div class="box">
-                        <img src="paulpic.png" alt>
+                        <img src="image/t4.jpg" class="team-img">
                         <div class="text">Paul</div>
                         <p>Hey there, I'm Paul, your friendly neighborhood web wizard! I thrive on pixels and code, crafting digital experiences that dazzle and delight. Let's turn your web dreams into reality!</p>
                     </div>
@@ -223,12 +211,13 @@
  
                 <div class="card">
                     <div class="box">
-                        <img src="valentinapic.png" alt>
+                        <img src="image/t5.jpg" class="team-img">
                         <div class="text">Valentina</div>
                         <p>Hi there! I'm Valentina. I'm passionate about leveraging technology to drive positive change. With a background in software engineering, I thrive in dynamic environments where I can collaborate with diverse teams to tackle challenges head-on. Let's innovate together!</p>
                     </div>
                 </div>
             </div>
+           
         </div>
     </section>
 
@@ -312,120 +301,103 @@
     <footer>
       Created by <span><a>Shaquille Neil</a></span> | All rights reserved Lasalle College 2024
      
-      <button onclick="topFunction()" class="scroll-up-btn" title="Go to top">up</button>
+      <button onclick="topFunction()" class="scroll-up-btn" title="Go to top"><img src="image/caret-up-outline.svg"></button>
 
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>$(document).ready(function(){
-        $('#form').submit(function(event){
-            event.preventDefault();
-    
-            $('.error').text('');
-    
-            let name = $('#name').val().trim();
-            if (name === ""){
-                $('#nameerror').text('Full Name is required');
-                return;
-            }
-    
-            let email = $('#email').val().trim();
-            if(email === ""){
-                $('#emailerror').text('Email Required');
-                return;
-            }
-    
-            let emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (!emailPattern.test(email)) {
-                $('#emailerror').text('Invalid Email Format');
-                return;
-            }
-    
-            let surname = $('#surname').val().trim();
-            if (surname === ""){
-                $('#surnameerror').text('Surname is required');
-                return;
-            }
-    
-            let textarea = $('#textarea').val().trim();
-            if (textarea === ""){
-                $('#texterror').text('Text is required');
-                return;
-            }
-        });
-    
-        // Checkbox toggle dark mode
-        $('#checkbox').click(function(){
-            var element = document.body;
-            element.classList.toggle("dark"); 
-        });
-
-        $(document).ready(function() {
-    $('#toggle_checkbox').change(function() {
-        $('body').toggleClass('dark-mode');
-    });
-});
-    
-        // Submit button validation
-        $("#submitbtn").click(function () { 
-            validateUsername(); 
-            validatePassword(); 
-            validateConfirmPassword(); 
-            validateEmail(); 
-            if (usernameError == true && 
-                passwordError == true && 
-                confirmPasswordError == true && 
-                emailError == true
-            ) { 
-                return true; 
-            } else { 
-                return false; 
-            } 
-        });
-
-        $(document).ready(function() {
-    // Add smooth scrolling to all links
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script>
+$(document).ready(function() {
+    // Smooth scroll for all links
     $("a").on('click', function(event) {
         if (this.hash !== "") {
-            
             event.preventDefault();
-
-            // Store hash
             var hash = this.hash;
-
-           
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 1, function(){
-                
+            }, 60, function() {
                 window.location.hash = hash;
             });
-
-           
             $(".navbar a").removeClass("active");
             $(this).addClass("active");
-        } // End if
+        }
+
+        if ($(this).attr("href") === "#about") {
+            $(".navbar").addClass("about-color");
+        } else {
+            $(".navbar").removeClass("about-color");
+        }
     });
-});
+
+    // Scroll up button
+    $(".scroll-up-btn").on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+    });
+
+    // Owl Carousel initialization
+    $('.owl-carousel').owlCarousel({
+        items: 3,
+        loop: true,
+        margin: 10,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
+
+    // Form validation
+    $('#form').submit(function(event) {
+        event.preventDefault();
+
+        $('.error').text('');
+
+        let name = $('#name').val().trim();
+        if (name === "") {
+            $('#nameerror').text('Full Name is required');
+            return;
+        }
+
+        // Other validation rules
+
+        // Submit the form if all validations pass
+        this.submit();
     });
 
     // Show the button when scrolling down
-window.onscroll = function() {scrollFunction()};
+    $(window).scroll(function() {
+        var scrollToTopBtn = $(".scroll-up-btn");
+        if ($(this).scrollTop() > 20) {
+            scrollToTopBtn.addClass("show");
+        } else {
+            scrollToTopBtn.removeClass("show");
+        }
+    });
 
-function scrollFunction() {
-  var scrollToTopBtn = document.getElementById("scroll-up-btn");
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollToTopBtn.style.display = "block";
-  } else {
-    scrollToTopBtn.style.display = "none";
-  }
-}
+    // Initial check for scroll up button visibility
+    $(window).scroll();
 
-// Scroll to the top when the button is clicked
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+    // Dark mode toggle
+    $('#dark-mode-toggle').click(function(event) {
+        event.preventDefault(); // Prevent the default behavior
+        $('body').toggleClass('dark-mode');
+
+        if ($('body').hasClass('dark-mode')) {
+            $('#dark-mode-toggle img').attr('src', 'image/moon-outline.svg');
+        } else {
+            $('#dark-mode-toggle img').attr('src', 'image/sunny-outline.svg');
+        }
+    });
+});
+
     </script>
     
 </body>
