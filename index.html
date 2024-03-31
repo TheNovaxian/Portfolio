@@ -268,11 +268,11 @@
                                
                                 <input id="surname" type="text" placeholder="Your surname">
                                 <div class="error" id="surnameerror"></div>
- 
+                             
                             <div class="textarea">
                                 
                                 <textarea id="textarea" cols="30" rows="10" placeholder="Write your message here"></textarea>
-                                <div class="error" id="texterror"></div>
+                                <div class="error" id="texterror"></div><br>
                             </div>
  
                             <div class="button">
@@ -343,25 +343,49 @@
 
         // Validate the form
         let isValid = true;
-        $('.error').text(''); // Clear previous errors
+        $('.error').text('');
 
         let name = $('#name').val().trim();
         if (name === "") {
-            $('#nameerror').text('Full Name is required');
+            $('#nameerror').text('First Name is required');
+            isValid = false;
+        }  
+
+        let email = $('#email').val().trim();
+    if (email === "") {
+        $('#emailerror').text('Email is required');
+        isValid = false;
+    } else {
+       
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            $('#emailerror').text('Please enter a valid email address');
             isValid = false;
         }
+    }
 
-        // Add more validation rules for other fields here
+        let surname = $('#surname').val().trim();
+        if (surname === "") {
+            $('#surnameerror').text('Surname is required');
+            isValid = false;
+        }  
+       
+        
+        let text= $('#textarea').val().trim();
+        if (text === "") {
+            $('#texterror').text('Please Type something');
+            isValid = false;
+        }  
 
         if (isValid) {
             updatePopupContent()
-            openpopup(); // Open the popup if the form is valid
+            openpopup();
         }
     });
 
     
     $("#popbuttonC, .popbutton[type='reset']").on("click", function() {
-        closepopup(); // Close the popup
+        closepopup(); 
     });
 
     $("a").on('click', function(event) {
