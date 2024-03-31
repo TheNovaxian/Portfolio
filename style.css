@@ -23,7 +23,7 @@ html {
 
 
 .dark-mode .home{
-    background-image: url(image/banner.jpg);
+    background-image: url(image/back.jpg);
 }
 
 .dark-mode .navbar .logo a span {
@@ -404,8 +404,18 @@ html {
     font-size: 75px;
     font-weight: 500;
     margin-left: -3px;
+    color:rgb(255, 255, 255);
+   text-shadow: 6px 6px 0 #e81313;
 }
- 
+
+.dark-mode .home .home-content .text-2 {
+    font-size: 75px;
+    font-weight: 500;
+    margin-left: -3px;
+    color:rgb(255, 255, 255);
+   text-shadow: 6px 6px 0 #8d0ff4;
+}
+
 .home .home-content .text-3 {
     font-size: 40px;
     margin: 5px 0;
@@ -614,7 +624,7 @@ footer {
  
 .services .serv-content .card {
     width: calc(33% - 20px);
-    background: #a4a4a4;
+    background: #f0f0f0;
     text-align: center;
     border-radius: 6px;
     padding: 20px 25px;
