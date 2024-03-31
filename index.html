@@ -263,7 +263,7 @@
                         <div class="fields">
                             <div class="field">
                                 
-                                <input id="name" type="text" placeholder="Your name:">
+                                <input id="name" type="text" placeholder="Your first name:">
                                 <div class="error" id="nameerror"></div>
                             </div>
  
@@ -282,20 +282,31 @@
  
                             <div class="textarea">
                                 
-                                <textarea id="textarea" cols="30" rows="10" placeholder="Write here your doubts (optional)"></textarea>
+                                <textarea id="textarea" cols="30" rows="10" placeholder="Write your message here"></textarea>
                                 <div class="error" id="texterror"></div>
                             </div>
  
                             <div class="button">
-                                <button id="submitbtn" type="submit">Send</button>
+                                <button id="submitbtn" type="submit" onclick="openpopup()">Send</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        
+    <div class="popup" id="popup">
+        <img src="image/confirm.png">
+        <h2>CONFIRM YOUR INFO</h2>
+        <div id="infopop"></div>
+        <div class="buttoncontainer">
+       <button class="popbutton" id="popbuttonC" onclick="downloadFile()">Confirm</button>
+       <button class="popbutton" type="reset" onclick="closepopup()">Cancel</button>
+      </div>
+      </div>
     </section>
     <div class="menu-btn"></div>
+    
     
 
     <footer>
@@ -308,6 +319,60 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script>
 $(document).ready(function() {
+    // Function to open the popup
+    function openpopup() {
+        $('#popup').addClass("open-popup");
+    }
+
+    // Function to close the popup
+    function closepopup() {
+        $('#popup').removeClass("open-popup");
+    }
+
+    function updatePopupContent() {
+    const name = form.elements["name"].value;
+    const email = form.elements["email"].value;
+    const surname = form.elements["surname"].value;
+    const text = form.elements["textarea"].value;
+  
+    const Ipop = document.getElementById("infopop");
+    Ipop.innerHTML = `
+        <p><b>First Name:</b> ${name}</p>
+        <p><b>Surname:</b> ${surname}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Message:</b>${text}</p>
+       
+    `;
+  }
+
+
+    // Click event handler for the submit button
+    $("#submitbtn").on("click", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Validate the form
+        let isValid = true;
+        $('.error').text(''); // Clear previous errors
+
+        let name = $('#name').val().trim();
+        if (name === "") {
+            $('#nameerror').text('Full Name is required');
+            isValid = false;
+        }
+
+        // Add more validation rules for other fields here
+
+        if (isValid) {
+            updatePopupContent()
+            openpopup(); // Open the popup if the form is valid
+        }
+    });
+
+    // Click event handler for the close buttons in the popup
+    $("#popbuttonC, .popbutton[type='reset']").on("click", function() {
+        closepopup(); // Close the popup
+    });
+
     // Smooth scroll for all links
     $("a").on('click', function(event) {
         if (this.hash !== "") {
@@ -318,8 +383,6 @@ $(document).ready(function() {
             }, 60, function() {
                 window.location.hash = hash;
             });
-            $(".navbar a").removeClass("active");
-            $(this).addClass("active");
         }
 
         if ($(this).attr("href") === "#about") {
@@ -341,6 +404,9 @@ $(document).ready(function() {
         loop: true,
         margin: 10,
         dots: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
         responsive: {
             0: {
                 items: 1
@@ -353,37 +419,6 @@ $(document).ready(function() {
             }
         }
     });
-
-    // Form validation
-    $('#form').submit(function(event) {
-        event.preventDefault();
-
-        $('.error').text('');
-
-        let name = $('#name').val().trim();
-        if (name === "") {
-            $('#nameerror').text('Full Name is required');
-            return;
-        }
-
-        // Other validation rules
-
-        // Submit the form if all validations pass
-        this.submit();
-    });
-
-    // Show the button when scrolling down
-    $(window).scroll(function() {
-        var scrollToTopBtn = $(".scroll-up-btn");
-        if ($(this).scrollTop() > 20) {
-            scrollToTopBtn.addClass("show");
-        } else {
-            scrollToTopBtn.removeClass("show");
-        }
-    });
-
-    // Initial check for scroll up button visibility
-    $(window).scroll();
 
     // Dark mode toggle
     $('#dark-mode-toggle').click(function(event) {
@@ -398,7 +433,10 @@ $(document).ready(function() {
     });
 });
 
+
+
     </script>
     
+
 </body>
 </html>
