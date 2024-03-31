@@ -61,10 +61,11 @@
         </div>
         <div class="right">
             <div class="text">I am Jessica Webb and <span>I am a front-end developer</span></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                 in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>I am a passionate web developer with a keen eye for design and a love for creating beautiful, functional websites.
+                 I thrive in the world of coding, constantly seeking out new challenges and opportunities to expand my skills. 
+                 My dedication to my craft drives me to always deliver high-quality work that exceeds expectations. As a woman in tech, 
+                 I am proud to contribute to the ever-evolving landscape of web development, bringing my unique perspective and creativity 
+                 to every project I undertake.</p>
                   <a>Download CV</a>
         </div>
       </div>
@@ -81,11 +82,7 @@
                 <div class="text">
                     <ion-icon name="brush-outline"></ion-icon>
                     <div class="text">Web Design</div>
-                    <div class="text"><p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, sed do eiusmod tempor
-                         incididunt ut labore et dolore magna aliqua. 
-                         Ut enim ad minim veniam, quis nostrud exercitation 
-                         ullamco laboris nisi ut aliquip ex ea commodo consequat</p></div>
+                    <div class="text"><p>Our web design services are crafted with precision and creativity to elevate your online presence. </p></div>
 
                 </div>
             </div>
@@ -94,11 +91,7 @@
                 <div class="text">
                     <ion-icon name="trending-up-outline"></ion-icon>
                     <div class="text">Adverts</div>
-                    <div class="text"><p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, sed do eiusmod tempor
-                         incididunt ut labore et dolore magna aliqua. 
-                         Ut enim ad minim veniam, quis nostrud exercitation 
-                         ullamco laboris nisi ut aliquip ex ea commodo consequat</p></div>
+                    <div class="text"><p>Looking to boost your brand's visibility and reach a wider audience? Our advertising services are tailored to help you achieve just that. With a focus on innovative strategies and creative campaigns, we can elevate your brand to new heights. </p></div>
 
                     
                 </div>
@@ -108,11 +101,7 @@
                 <div class="text">
                     <ion-icon name="code-outline"></ion-icon>
                     <div class="text">App Design</div>
-                    <div class="text"><p>Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, sed do eiusmod tempor
-                         incididunt ut labore et dolore magna aliqua. 
-                         Ut enim ad minim veniam, quis nostrud exercitation 
-                         ullamco laboris nisi ut aliquip ex ea commodo consequat</p></div>
+                    <div class="text"><p>Looking to turn your app idea into a stunning reality? Our app design services are here to make it happen. </p></div>
 
                     
                 </div>
@@ -318,35 +307,37 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script>
-$(document).ready(function() {
-    // Function to open the popup
+           function topFunction() {
+            $("html, body").animate({ scrollTop: 0 }, 50);
+        }
+
+       $(document).ready(function() {
+
     function openpopup() {
         $('#popup').addClass("open-popup");
     }
 
-    // Function to close the popup
+    
     function closepopup() {
         $('#popup').removeClass("open-popup");
     }
 
     function updatePopupContent() {
-    const name = form.elements["name"].value;
-    const email = form.elements["email"].value;
-    const surname = form.elements["surname"].value;
-    const text = form.elements["textarea"].value;
-  
-    const Ipop = document.getElementById("infopop");
-    Ipop.innerHTML = `
-        <p><b>First Name:</b> ${name}</p>
-        <p><b>Surname:</b> ${surname}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b>${text}</p>
-       
-    `;
-  }
+        const name = form.elements["name"].value;
+        const email = form.elements["email"].value;
+        const surname = form.elements["surname"].value;
+        const text = form.elements["textarea"].value;
 
+        const Ipop = document.getElementById("infopop");
+        Ipop.innerHTML = `
+            <p><b>First Name:</b> ${name}</p>
+            <p><b>Surname:</b> ${surname}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Message:</b>${text}</p>
+        `;
+    }
 
-    // Click event handler for the submit button
+    
     $("#submitbtn").on("click", function(event) {
         event.preventDefault(); // Prevent the form from submitting
 
@@ -368,12 +359,11 @@ $(document).ready(function() {
         }
     });
 
-    // Click event handler for the close buttons in the popup
+    
     $("#popbuttonC, .popbutton[type='reset']").on("click", function() {
         closepopup(); // Close the popup
     });
 
-    // Smooth scroll for all links
     $("a").on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
@@ -393,12 +383,22 @@ $(document).ready(function() {
     });
 
     // Scroll up button
-    $(".scroll-up-btn").on("click", function(e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+    $(".scroll-up-btn").hide();
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('.scroll-up-btn').fadeIn();
+        } else {
+            $('.scroll-up-btn').fadeOut();
+        }
     });
 
-    // Owl Carousel initialization
+   
+    $(".scroll-up-btn").on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, 100);
+    });
+
+   
     $('.owl-carousel').owlCarousel({
         items: 3,
         loop: true,
@@ -420,9 +420,8 @@ $(document).ready(function() {
         }
     });
 
-    // Dark mode toggle
     $('#dark-mode-toggle').click(function(event) {
-        event.preventDefault(); // Prevent the default behavior
+        event.preventDefault(); 
         $('body').toggleClass('dark-mode');
 
         if ($('body').hasClass('dark-mode')) {
@@ -431,10 +430,9 @@ $(document).ready(function() {
             $('#dark-mode-toggle img').attr('src', 'image/sunny-outline.svg');
         }
     });
+
+  
 });
-
-
-
     </script>
     
 
