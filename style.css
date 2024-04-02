@@ -33,7 +33,7 @@ html {
 
 
 .dark-mode .home{
-    background-image: url(image/back.jpg);
+    background-image: url(image/test.svg);
 }
 
 .dark-mode .navbar .logo a span {
@@ -399,7 +399,7 @@ html {
 /*  Home start  */
 .home {
     display: flex;
-    background: url(image/dback.jpg) no-repeat;
+    background: url(image/test.svg) no-repeat;
     background-size: cover;
     height: 100vh;
     color: #fff;
@@ -571,7 +571,7 @@ footer {
 /*  session about */
  
 .about .title::after {
-    content: "Quem sou eu";
+    content: "Who am I?";
 }
  
 .about .about-content .left {
@@ -636,7 +636,7 @@ footer {
 .services .title::after,
 .teams .title::after {
     background: #FEF9F3;
-    content: "Que oferecemos";
+    content: "Excellence";
 }
  
 .services .serv-content .card {
@@ -679,7 +679,7 @@ footer {
  
 /*  specialties session  */
 .skills .title::after {
-    content: "Que faço";
+    content: "My Strengths";
 }
  
 .skills .skills-content .column {
@@ -762,7 +762,7 @@ footer {
     background-color: #e81313; 
     display: block;
     height: 100%;
-    width: 85%; 
+    width: 88%; 
     transition: width 0.5s; 
 }
 .skills .skills-content .right .line3 span {
@@ -776,7 +776,7 @@ footer {
     background-color: #e81313; 
     display: block;
     height: 100%;
-    width: 42%; 
+    width: 50%; 
     transition: width 0.5s; 
 }
 .skills .skills-content .right .line2 span {
@@ -832,7 +832,7 @@ footer {
  
 /*  Team session  */
 .teams .title::after {
-    content: "Especializada";
+    content: "The Heart & Soul";
 }
  .teams .carousel{
     /* display: flex;
@@ -927,7 +927,7 @@ footer {
  
 /* Contact session  */
 .contact .title::after {
-    content: "Fale conosco";
+    content: "Got Questions?";
 }
  
 .contact .contact-content .column {
@@ -1039,7 +1039,7 @@ footer {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding-top: 10px;
+    
 }
  
 .contact .right form .button button:hover {
