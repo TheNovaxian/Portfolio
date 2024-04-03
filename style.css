@@ -222,7 +222,7 @@ html {
     background-color: #e81313; 
     display: block;
     height: 100%;
-    width: 85%; 
+    width: 88%; 
     transition: width 0.5s; 
 }
 .dark-mode .skills .skills-content .right .line3 span {
@@ -236,7 +236,7 @@ html {
     background-color: #e81313; 
     display: block;
     height: 100%;
-    width: 42%; 
+    width: 50%; 
     transition: width 0.5s; 
 }
 .dark-mode .skills .skills-content .right .line2 span {
